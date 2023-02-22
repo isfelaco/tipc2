@@ -23,6 +23,7 @@ void Optimizer::optimize(Module* theModule, DisoptPass pass) {
   // Create a pass manager to simplify generated module
   auto TheFPM = std::make_unique<legacy::FunctionPassManager>(theModule);
 
+
   // Promote allocas to registers.
   if (pass != Optimizer::DisoptPass::pmr) {
     LOG_S(1) << "Enabling Promote Memory to Register Pass";
@@ -59,8 +60,18 @@ void Optimizer::optimize(Module* theModule, DisoptPass pass) {
     TheFPM->add(createTailCallEliminationPass());
   }
 
+  TheFPM->add(createLoopSimplifyPass());
+  TheFPM->add(createLICMPass());
+  TheFPM->add(createLoopFusePass());
+
   // initialize and run simplification pass on each function
   TheFPM->doInitialization();
+  for (auto &fun : theModule->getFunctionList()) {
+    LOG_S(1) << "Optimizing function " << fun.getName().str();
+
+    TheFPM->run(fun);
+  }
+
   for (auto &fun : theModule->getFunctionList()) {
     LOG_S(1) << "Optimizing function " << fun.getName().str();
 

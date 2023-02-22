@@ -9,10 +9,11 @@
 class Optimizer {
 public:
   //! \brief keys for optimization passes that can be disabled
-  enum DisoptPass { all, pmr, ic, re, gvn, cfgs, tce, NumPasses };
+  enum DisoptPass { none, all, pmr, ic, re, gvn, cfgs, tce, NumPasses };
 
   //! \brief strings for optimization pass keys
   static const constexpr char* const cmdLine[NumPasses] = {
+    "disable no optimizations",
     "disable all optimizations",
     "disable promote memory to register",
     "disable instruction combining",

@@ -21,9 +21,10 @@ static cl::opt<int> debug("verbose", cl::desc("enable log messages (Levels 1-3) 
 static cl::opt<bool> emitHrAsm("asm",
                            cl::desc("emit human-readable LLVM assembly language"),
                            cl::cat(TIPcat));
-// CLEANUP - the following can be cleaned up by using an optimizer namespace
 static cl::opt<Optimizer::DisoptPass> disopt(cl::desc("Disable all or one optimization"), 
                                   cl::values(
+                                    clEnumValN(Optimizer::none, "none",
+                                              Optimizer::cmdLine[Optimizer::none]),
                                     clEnumValN(Optimizer::all, "all",
                                               Optimizer::cmdLine[Optimizer::all]),
                                     clEnumValN(Optimizer::pmr, "pmr",
