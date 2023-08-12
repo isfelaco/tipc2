@@ -2,6 +2,20 @@ cmake_minimum_required(VERSION 3.15)
 
 project(tipc)
 
+# Loading HPC modules for development
+execute_process(
+        COMMAND ./loadHPCmodules.sh
+        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+        RESULT_VARIABLE CMD_RESULT
+)
+
+if (CMD_RESULT EQUAL 0)
+  message("Build succeeded!")
+else()
+  message("Build failed with exit code: ${CMD_RESULT}")
+endif()
+
+
 # Required packages
 find_package(PkgConfig REQUIRED)
 pkg_search_module(UUID REQUIRED uuid)
