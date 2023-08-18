@@ -50,6 +50,8 @@ _NOTE: Use YOUR computing ID in `Username` field_
 ---
 
 #### References
-[1] [https://www.jetbrains.com/help/clion/remote-projects-support.html](https://www.jetbrains.com/help/clion/remote-projects-support.html)
+[1] [jetbrains.com/help/clion/remote-projects-support](https://www.jetbrains.com/help/clion/remote-projects-support.html)
 
-[2] [https://www.jetbrains.com/help/clion/cmake-profile.html](https://www.jetbrains.com/help/clion/cmake-profile.html)
+[2] [jetbrains.com/help/clion/cmake-profile](https://www.jetbrains.com/help/clion/cmake-profile.html)
+
+[3] [UVa CS portal wiki](https://www.cs.virginia.edu/wiki/doku.php?id=compute_portal)
