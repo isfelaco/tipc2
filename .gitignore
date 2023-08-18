@@ -38,3 +38,6 @@ coverage.out/
 corretto.key*
 kitware-archive.sh*
 llvm.sh*
+
+#macOS residual file cleanup
+.DS_Store

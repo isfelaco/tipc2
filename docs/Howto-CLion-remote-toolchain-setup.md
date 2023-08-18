@@ -18,6 +18,8 @@ echo "module load clang-llvm-14.0.6 && export TIPCLANG=`which clang`" >>~/.bash_
 1. Open CLion, goto `Settings | Tools | SSH Configurations` and click `+` to add new configuration
 2. Fill in your portal credentials and make sure rest of your configuration looks like the following:
 ![ssh-add.png](clion-remote-dev-img%2Fssh-add.png)
+_NOTE: Use YOUR computing ID in `Username` field_
+
 
 3. Click `Test Connection` and you should see `Successfully connected!` as following -
 
