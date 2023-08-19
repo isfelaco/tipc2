@@ -6,12 +6,26 @@
 > macOS Ventura 13.5 (22G74)
 
 
-## Setup .bash_profile in UVa CS Portal
+## Setup .bashrc in UVa CS Portal
 1. Log-in to your portal shell using your terminal.
-2. Execute the following command to load modules and set environment parameters at login
+2. Add the following as-it-is to the end of your .bashrc file in your home directory
 ```shell
-echo "module load clang-llvm-14.0.6 && export TIPCLANG=`which clang`" >>~/.bash_profile
+#tipc ENV setup
+export PATH="/sw/ubuntu-22.04/cmake/current/bin:/sw/ubuntu-22.04/llvm/14.0.6/bin:$PATH"
+export LD_LIBRARY_PATH="/sw/ubuntu-22.04/llvm/14.0.6/lib"
+export LD_INCLUDE_PATH="/sw/ubuntu-22.04/llvm/14.0.6/include"
+alias antlr4="java -Xmx500M -cp /sw/ubuntu-22.04/antlr/current org.antlr.v4.Tool"
+alias grun="java -Xmx500M -cp /sw/ubuntu-22.04/antlr/current org.antlr.v4.gui.TestRig"
+export CLASSPATH="/sw/ubuntu-22.04/antlr/current"
+export TIPCLANG=`which clang`
 ```
+OR
+
+execute the following in your shell:
+```shell
+echo "I3RpcGMgRU5WIHNldHVwCmV4cG9ydCBQQVRIPSIvc3cvdWJ1bnR1LTIyLjA0L2NtYWtlL2N1cnJlbnQvYmluOi9zdy91YnVudHUtMjIuMDQvbGx2bS8xNC4wLjYvYmluOiRQQVRIIgpleHBvcnQgTERfTElCUkFSWV9QQVRIPSIvc3cvdWJ1bnR1LTIyLjA0L2xsdm0vMTQuMC42L2xpYiIKZXhwb3J0IExEX0lOQ0xVREVfUEFUSD0iL3N3L3VidW50dS0yMi4wNC9sbHZtLzE0LjAuNi9pbmNsdWRlIgphbGlhcyBhbnRscjQ9ImphdmEgLVhteDUwME0gLWNwIC9zdy91YnVudHUtMjIuMDQvYW50bHIvY3VycmVudCBvcmcuYW50bHIudjQuVG9vbCIKYWxpYXMgZ3J1bj0iamF2YSAtWG14NTAwTSAtY3AgL3N3L3VidW50dS0yMi4wNC9hbnRsci9jdXJyZW50IG9yZy5hbnRsci52NC5ndWkuVGVzdFJpZyIKZXhwb3J0IENMQVNTUEFUSD0iL3N3L3VidW50dS0yMi4wNC9hbnRsci9jdXJyZW50IgpleHBvcnQgVElQQ0xBTkc9YHdoaWNoIGNsYW5nYAoK" | base64 -d >>~/.bashrc
+```
+
 
 ## Setup SSH profile
 
